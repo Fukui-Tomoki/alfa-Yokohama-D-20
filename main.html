@@ -34,8 +34,8 @@
         <section class="section">
           <div class="container">
             <h2 class="section-title section-title--keycolorlight"><span class="section-title__stage">STAGE：1</span>さぁゲームを始めよう！</h2>
-            <p class="text-center">誰もいないと知った友人が、ゲームをタダで遊びたいと言ってきた。お金が溜まっている場所を開けるためにはキーワードが必要だ。<br>
-              下の画像の謎を解き、キーワード欄に　カタカナ　で入力しよう。</p>
+            <p class="text-center">誰もいないと知った友人はどうやらゲームで遊びたいと言ってきた。なので、お金が溜まっている場所を開けるために謎が送られてきた。<br>
+              下の画像の謎を解き、鍵のありかをキーワード欄に入力しよう。</p>
             <p class="text-center">困ったときは、ヒントがある。なるべく見ないようにゲームを進めていこう。</p>
   
             <div class="container">
@@ -86,8 +86,8 @@ Youtube貼り付けここまで -->
             <div class="clear-message">
               <div class="clear-message__title">STAGE：１  クリア！</div>
               <div class="clear-message__content">コインが溜まっている場所が開いた！<br>
-                友人からのメッセージが来なくなったところを見ると、ゲームに夢中になっているのだろうか・・・<br>
-                </div>
+                さぁ先生を助けるため<br>
+                ３つステージの謎をとき、暗号を見つけ出そう！</div>
               <button v-on:click="nextStage('stage1')" onclick="location.href='#sectionStage2'" class="clear-message__btn btn">次のステージへ<svg class="btn__arrow"><use xlink:href="#arrow"></use></svg></button>
             </div>
           </div>
@@ -107,9 +107,9 @@ Youtube貼り付けここまで -->
           <div class="section">
             <div class="container">
               <h2 class="section-title section-title--keycolorlight"><span class="section-title__stage">STAGE：2</span>黒板に書かれている謎を解け！</h2>
-              <p class="text-center">しばらくして、友人から再びメッセージが。<br>
-                今度はUFOキャッチャーの中にあるフィギアがどうしても欲しいらしい。<br>
-                友人のわがままに付き合って、ゲーム機の窓を開けるためのキーを導き出そう！</p>
+              <p class="text-center">家庭科室に入ることができた！<br>
+                すぐに目に入ったのは黒板にある４つの謎。<br>
+                これらを解くことで、きっと次のステップに繋がるはずだ！</p>
             </div>
           </div>
           <div class="stage-column__container section bg-color--keycolor">
@@ -181,8 +181,8 @@ Youtube貼り付けここまで -->
           <div class="container">
             <div class="clear-message">
               <div class="clear-message__title">STAGE：2　クリア！</div>
-              <div class="clear-message__content">友人はフィギアを取り出すことに成功した！<br>
-                とても喜んでいた友人だが・・・</div>
+              <div class="clear-message__content">黒板の指示に従い、<br>
+                次のステージの謎を解こう！</div>
                 <button v-on:click="nextStage('stage2')" onclick="location.href='#sectionStage3'" class="clear-message__btn btn">次のステージへ<svg class="btn__arrow"><use xlink:href="#arrow"></use></svg></button>
             </div>
           </div>
@@ -191,13 +191,107 @@ Youtube貼り付けここまで -->
       </div>
       <!-- STAGE2　ここまで -->
 
-      <!-- STAGE3　ここから -->
-      <div v-if="next['stage2']" id="sectionStage3" class="stage">
+            <!-- STAGE3　ここから -->
+      <!---------------------------------------------------------------------
+        クリア画面の「次のステージへ」ボタンをクリックしたら表示します。
+        v-if="next['stage1']"はnext['stage1']がtrueになったら表示します。
+      ----------------------------------------------------------------------->
+      <div v-if="next['stage2']" id="sectionStage2" class="stage">
+        <section>
+          <div class="section">
+            <div class="container">
+              <h2 class="section-title section-title--keycolorlight"><span class="section-title__stage">STAGE：3</span>黒板に書かれている謎を解け！</h2>
+              <p class="text-center">家庭科室に入ることができた！<br>
+                すぐに目に入ったのは黒板にある４つの謎。<br>
+                これらを解くことで、きっと次のステップに繋がるはずだ！</p>
+            </div>
+          </div>
+          <div class="stage-column__container section bg-color--keycolor">
+            <div class="container">
+              <h2 class="section-title"><span class="section-title__stage">STAGE：3</span>キーワードを入力</h2>
+              <!-------------------------------------------------------------
+                class名"row"内のclass名"column"が横並びになります。
+                改行する場合は以下のように追加してください。
+                <div class="row">
+                  <div class="column">
+                    ～ 内容 ～
+                  </div>
+                </div>
+              ------------------------------------------------------------->
+              <div class="row">
+
+                <!-- STAGE2-1　ここから -->
+                <div class="column">
+                  <!-- STAGE2-1問題セクション　ここから -->
+                  <figure class="image__container">
+                    <img src="assets/images/ナンプレ.png" alt="">
+                  </figure>
+                  <!-- STAGE2-1問題セクション　ここまで -->
+                  <!-- STAGE2-1解答入力セクション　ここから -->
+                  <answer-input v-bind:correct="correctAnswer['stage3']['q1']" v-on:answer-input="answerInput($event, 'stage3', 1)"></answer-input>
+                  <a class="link-hint" href="hint3.html" target="hint3">ヒントをみる ></a>
+                  <!-- STAGE2-1解答入力セクション　ここまで -->
+                </div><!-- /.column -->
+                <!-- STAGE2-1　ここまで -->
+
+<!-- STAGE2-2 を追加
+
+                <div class="column">
+
+                  <figure class="image__container">
+                    <img src="assets/images/stage.png" alt="">
+                  </figure>
+
+                  <answer-input v-bind:correct="correctAnswer['stage2']['q2']" v-on:answer-input="answerInput($event, 'stage2', 2)"></answer-input>
+                  <a class="link-hint" href="hint2.html" target="hint2">ヒントをみる ></a>
+                　
+                </div>
+
+2-2追加ここまで -->
+                  
+<!-- STAGE2-3 を追加
+
+                <div class="column">
+
+                  <figure class="image__container">
+                    <img src="assets/images/stage.png" alt="">
+                  </figure>
+
+                  <answer-input v-bind:correct="correctAnswer['stage2']['q3']" v-on:answer-input="answerInput($event, 'stage2', 3)"></answer-input>
+                  <a class="link-hint" href="hint2.html" target="hint2">ヒントをみる ></a>
+
+                </div>
+
+2-3追加ここまで -->
+
+              </div><!-- /.row -->
+
+            </div>
+          </div>
+        </section>
+
+        <!-- STAGE3クリア画面　ここから -->
+        <section v-if="clear['stage3']" v-bind:class="{isClear:clear['stage3']}"  class="section section--clear bg-color--gray">
+          <div class="container">
+            <div class="clear-message">
+              <div class="clear-message__title">STAGE：3　クリア！</div>
+              <div class="clear-message__content">黒板の指示に従い、<br>
+                次のステージの謎を解こう！</div>
+                <button v-on:click="nextStage('stage3')" onclick="location.href='#sectionStage4'" class="clear-message__btn btn">次のステージへ<svg class="btn__arrow"><use xlink:href="#arrow"></use></svg></button>
+            </div>
+          </div>
+        </section>
+        <!-- STAGE2クリア画面　ここまで -->
+      </div>
+      <!-- STAGE3　ここまで -->
+      
+      <!-- STAGE4　ここから -->
+      <div v-if="next['stage3']" id="sectionStage4" class="stage">
 
         <!-- STAGE3-1問題セクション　ここから -->
         <section class="section">
           <div class="container">
-            <h2 class="section-title section-title--keycolorlight"><span class="section-title__stage">STAGE：3</span>家庭科室の課題とは</h2>
+            <h2 class="section-title section-title--keycolorlight"><span class="section-title__stage">STAGE：4</span>家庭科室の課題とは</h2>
             <p class="text-center">黒板から得たメッセージは、「食物の廃棄問題」だった。<br>
               どうやら、廃棄にかかる費用がかかりすぎて小学校の運営が厳しくなったようだ。。<br>
               これらを解決するための最後の謎を解いていこう！</p>
@@ -211,14 +305,14 @@ Youtube貼り付けここまで -->
         <!-- STAGE3-1解答入力セクションここから -->
         <section class="section bg-color--keycolor">
           <div class="container">
-            <h2 class="section-title"><span class="section-title__stage">STAGE：3</span>キーワードを入力</h2>
+            <h2 class="section-title"><span class="section-title__stage">STAGE：4</span>キーワードを入力</h2>
             <!-----------------------------------------------------------------------------------------------------------------
               解答入力欄のコンポーネントです。
               v-on:answer-input="answerInput($event, 'stage3', 1, 'final')" は送信ボタンをクリックした時の動作を決める関数です。
               4番目の引数 'final' は最終ステージを表します。
             ------------------------------------------------------------------------------------------------------------------>
-            <answer-input v-bind:correct="correctAnswer['stage3']['q1']" v-on:answer-input="answerInput($event, 'stage3', 1, 'final')"></answer-input>
-            <a class="link-hint" href="hint3.html" target="hint3">ヒントをみる ></a>
+            <answer-input v-bind:correct="correctAnswer['stage4']['q1']" v-on:answer-input="answerInput($event, 'stage4', 1, 'final')"></answer-input>
+            <a class="link-hint" href="hint4.html" target="hint4">ヒントをみる ></a>
           </div>
         </section>
         <!-- STAGE3-1解答入力セクション　ここまで -->
@@ -236,9 +330,9 @@ Youtube貼り付けここまで -->
 
         <section class="section bg-color--keycolor">
           <div class="container">
-            <h2 class="section-title"><span class="section-title__stage">STAGE：3</span>キーワードを入力</h2>
-            <answer-input v-bind:correct="correctAnswer['stage3']['q2']" v-on:answer-input="answerInput($event, 'stage3', 2, 'final')"></answer-input>
-            <a class="link-hint" href="hint3.html" target="hint3">ヒントをみる ></a>
+            <h2 class="section-title"><span class="section-title__stage">STAGE：4</span>キーワードを入力</h2>
+            <answer-input v-bind:correct="correctAnswer['stage3']['q2']" v-on:answer-input="answerInput($event, 'stage4', 2, 'final')"></answer-input>
+            <a class="link-hint" href="hint4.html" target="hint4">ヒントをみる ></a>
           </div>
         </section>
       　　
@@ -259,8 +353,8 @@ STAGE3-2追加ここまで -->
           <div class="container">
             <h2 class="section-title"><span class="section-title__stage">STAGE：3</span>キーワードを入力</h2>
 
-            <answer-input v-bind:correct="correctAnswer['stage3']['q3']" v-on:answer-input="answerInput($event, 'stage3', 3, 'final')"></answer-input>
-            <a class="link-hint" href="hint3.html" target="hint3">ヒントをみる ></a>
+            <answer-input v-bind:correct="correctAnswer['stage4']['q3']" v-on:answer-input="answerInput($event, 'stage4', 3, 'final')"></answer-input>
+            <a class="link-hint" href="hint4.html" target="hint4">ヒントをみる ></a>
           </div>
         </section>
 
